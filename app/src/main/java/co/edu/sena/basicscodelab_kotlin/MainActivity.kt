@@ -45,6 +45,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(modifier: Modifier = Modifier) {
 
+
     var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
 
     Surface(modifier) {
@@ -100,15 +101,14 @@ fun OnboardingPreview() {
 
 @Composable
 private fun Greeting(name: String) {
-
     var expanded by remember { mutableStateOf(false) }
-
     val extraPadding by animateDpAsState(
+
         if (expanded) 48.dp else 0.dp,
         animationSpec = spring(
             dampingRatio = Spring.DampingRatioMediumBouncy,
             stiffness = Spring.StiffnessLow
-        )
+        ), label = ""
     )
     Surface(
         color = MaterialTheme.colorScheme.primary,
